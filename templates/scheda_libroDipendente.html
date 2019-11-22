@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+	<link href="{% static 'schedalibro.css' %}" rel="stylesheet" type="text/css">
+	<link rel= "icon" href="{% static 'logoSito.png' %}">
+    <title>Scheda libro</title>
+    <script type="text/javascript" src="{% static 'functions.js' %}"></script>
+</head>
+<body background="{% static 'sfondoSito.jpg' %}">
+	<header id="header2">
+        <nav class="links_dipendenti" style="--items: 5;">
+            <div id="menu2" onclick="apriTendina();">
+                <img src = "{% static 'menu-button-of-three-horizontal-lines.png' %}">
+            </div>
+            <a href="{% url 'index' %}"><p class = "titolo">LA BIBLIOTECA DIGITALE</p></a>
+            <p class = "benvenuto" align="center">CIAO, {{ user }}</p>
+            <a href="{% url 'Logout' %}"><p class = "titolo">LOGOUT</p></a>
+            <div class="src" onclick="cerca();">
+                <img src = "{% static 'src.png' %}">
+            </div>
+            <span class="line"></span>
+        </nav>
+    </header>
+	<div id = "content">
+		<nav class="tendina" style="--items: 7;">
+			<a href="{% url 'generi' 1 %}">AVVENTURA</a>
+			<a href="{% url 'generi' 2 %}">COMMEDIA</a>
+			<a href="{% url 'generi' 3 %}">FANTASCIENZA</a>
+			<a href="{% url 'generi' 4 %}">FANTASY</a>
+			<a href="{% url 'generi' 5 %}">GIALLO</a>
+			<a href="{% url 'generi' 6 %}">HORROR</a>
+			<a href="{% url 'generi' 7 %}">ROSA</a>
+			<span class="line"></span>
+		</nav>
+	</div>
+    <div class="generalDiv">
+        <div class = "image">
+            <img src = "{% static libro.image %}">
+            <div class = "scritte">
+                {{ libro.NumeroPagine }}
+                pagine
+            </div>
+        </div>
+
+        <div class = "tit">
+            <h1>
+                {{ libro.Titolo_Libro }}
+            </h1>
+        </div>
+
+        <div class = "desc">
+            {{ libro.Descrizione }}
+        </div>
+
+        <div class = "info">
+            <h2 align="center">
+				</br> Autore: {{ libro.Autore }}
+				&nbsp &nbsp Casa editrice: {{ libro.Casa_Editrice }}
+				&nbsp &nbsp Genere letterario: {{ libro.Genere }}
+				&nbsp &nbsp Numero copie disponibili: {{ libro.Numero_Copie }}
+			</h2>
+        </div>
+        <div class = "prenotazioni">
+			<h2>Utenti che hanno preso in prestito il libro:</h2>
+            <p align="center">
+                {% for i in lista_prenotati %}
+               </br> {{ i.Utente }} </br>
+                {% endfor %}
+            </p>
+		</div>
+
+        <div class = "attese">
+			<h2>Utenti che sono in attesa del libro:</h2>
+            <p align="center">
+                {% for i in lista_attesa %}
+                   </br> {{ i.Utente }} </br>
+                {% endfor %}
+            </p>
+		</div>
+
+        <div class = "buttonAggiungiCopia">
+			<button  onclick="aggiungiCopiaLibro();">AGGIUNGI COPIA</button>
+		</div>
+
+        <div class = "buttonRimuoviCopia">
+            <button  onclick="rimuoviCopiaLibro({{ libro.Numero_Copie }}, {{ codiceLibro }});">RIMUOVI COPIA</button>
+        </div>
+
+        <div class = "buttonRimuoviLibro">
+            {% if cancella == True %}
+                <button  onclick="rimuoviLibro(true, {{ codiceLibro }});">RIMUOVI LIBRO</button>
+            {% else %}
+                <button  onclick="rimuoviLibro(false, {{ codiceLibro }});">RIMUOVI LIBRO</button>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

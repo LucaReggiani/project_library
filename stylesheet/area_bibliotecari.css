@@ -1,0 +1,196 @@
+html, body {margin: 0; overflow: hidden}
+html, body, h1, h2, h3, h4, h5, h6, p, li, ol, ul, pre {
+	margin: 0;
+	padding: 0;
+}
+html, body { min-height: 100%;}
+
+body {
+	color: #eee; /* colore scritta "effettua il login" */
+	font-family: 'Lato', sans-serif;
+	font-size: 62.5%; /* dimensione scritte */
+	padding: 0 20px;
+	box-sizing: border-box;
+}
+
+#content {
+	color: #666; /* colore delle scritte */
+	font-size: 1.6em; /* dimensione delle scritte */
+	margin-top: 6%;
+	padding: 0px; /* spazio dall'alto delle scritte */
+	width: 17%;
+	margin-left:-500px;
+	height:600px;
+    background: rgba(0,0,0,0.6);
+    position:relative;
+    top:-4.2px;
+    z-index:1;
+}
+
+.links { /*css sul nav complessivo */
+
+	box-shadow: 0 0 32px #0009; /*ombra bordo nav */
+	font-size: 1.5em; /*grandezza scritte nav */
+	font-weight: 1000; /*spessore scritte nav */
+	background: rgba(0,0,0,0.6);
+	list-style: none;
+}
+.links > a { /*css sulle scritte del nav */
+	color: #FFFFFF; /*colora le scritte del nav*/
+	text-align: center;
+	text-decoration: none; /*tolgo la sottolineature */
+	transition: all .5s;
+	padding: 20px; /*abbassa le scritte inserendo un margine dall'alto */
+}
+.links > a:hover { /*comportamento quando il mouse ci passa sopra */
+	background: rgba(0,0,0,0.6);
+}
+
+#menu:hover { /*comportamento quando il mouse ci passa sopra */
+	background: rgba(0,0,0,0.6);
+}
+
+#menu {
+	font-size: 1.5em; /*grandezza scritte nav */
+	font-weight: 1000; /*spessore scritte nav */
+	text-align: center;
+	transition: all .5s;
+	padding: 20px; /*abbassa le scritte inserendo un margine dall'alto */
+	cursor:pointer;
+}
+
+.tendina {
+	display: grid; /*dispone gli oggetti a griglia */
+	grid-template-rows: 80px 80px 80px 80px 80px 80px 90px; /* Cinque colonne con dimensioni fissate */
+    font-size: 1.0em; /*grandezza scritte nav */
+	font-weight: 1000; /*spessore scritte nav */
+}
+
+.tendina > a {
+	text-decoration: none; /*tolgo la sottolineature */
+	color: #FFFFFF; /*colora le scritte del nav*/
+	text-align: center;
+	text-decoration: none; /*tolgo la sottolineature */
+	transition: all .5s;
+	padding: 25px; /*abbassa le scritte inserendo un margine dall'alto */
+}
+
+.tendina > a:hover {
+
+    background: rgba(72,72,72, 0.8);
+    font-size: 1.2em;
+}
+
+#header {
+	position: fixed;
+	z-index:1;
+}
+.links {
+	display: grid; /*dispone gli oggetti a griglia */
+	grid-template-columns: 100px 400px 400px 250px 150px; /* Cinque colonne con dimensioni fissate */
+	position: relative;
+}
+
+.div1 {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-300px; /* sposta verso sinistra l'intero pannello */
+    margin-top: -200px;
+    display:block;
+    width:500px; /* larghezza */
+    height:400px;
+    float:left;
+    background-color:black;
+    padding:30px;
+    background-image: url(registrati.jpg);
+    border-style:solid;
+    border-color:gray;
+    border-width:5px;
+}
+
+.form1 {
+    position: relative;
+    margin: 0 auto 100px;
+    margin-top:0px;
+    padding: 50px; /* spazio tra il margine e la textbox */
+}
+
+.titolo_accedi  {
+    position:absolute;
+    top:50%;
+    left:72%;
+    margin-left:-460px;
+    margin-top: -230px;
+    z-index:1;
+    background-color:gray;
+    width:250px;
+    padding:20px;
+    text-align:center;
+}
+
+.form1 input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #D3D3D3; /* sfondo degli input */
+    color:black;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    border-style:solid;
+    border-color:black;
+    border-width:1px;
+}
+
+button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase; /* maiuscolo */
+    outline: 0;
+    background: gray;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #000000;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer; /* cursore a manina */
+    border-style:solid;
+    border-color:black;
+    border-width:1px;
+}
+
+.btnLogin {
+    position: relative;
+    top:155px;
+}
+
+h4 {
+position:relative;
+top:15px;
+text-align:center;
+color: black;
+}
+
+.form1 a {
+    color: #D3D3D3;
+}
+
+.src:hover { /*comportamento quando il mouse ci passa sopra */
+	background: rgba(0,0,0,0.6);
+}
+
+.src {
+	font-weight: 800; /*spessore scritte nav */
+	text-align: center;
+	padding: 10px; /*abbassa le scritte inserendo un margine dall'alto */
+	cursor:pointer;
+}
+
+.titolo {
+    font-size: 25px;
+    margin-top:-5px;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+	<meta charset="UTF-8">
+	<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
+	<link rel= "icon" href="{% static 'logoSito.png' %}">
+    <title>la biblioteca digitale</title>
+    <script type="text/javascript" src="{% static 'functions.js' %}"></script>
+</head>
+<body background="{% static 'sfondoSito.jpg' %}">
+    <header id="header2">
+        <nav class="links_login" style="--items: 6;">
+            <div id="menu2" onclick="apriTendina();">
+                <img src = "{% static 'menu-button-of-three-horizontal-lines.png' %}">
+            </div>
+            <a href="{% url 'index' %}"><p class = "titolo">LA BIBLIOTECA DIGITALE</p></a>
+            <p class = "benvenuto" align="center">CIAO, {{ user }}</p>
+            <div id="notifics" onclick="apriNotifiche()">
+                {% if notifics == True %}
+                    <img src = "{% static 'notifica_arrivata.png' %}">
+                {% elif notifics == False %}
+                    <img src = "{% static 'nessuna_notifica.png' %}">
+                {% endif %}
+            </div>
+            <a href="{% url 'Logout' %}"><p class = "titolo">LOGOUT</p></a>
+            <div class="src" onclick="cerca();">
+                <img src = "{% static 'src.png' %}">
+            </div>
+            <span class="line"></span>
+        </nav>
+    </header>
+	<div id = "content">
+		<nav class="tendina" style="--items: 7;">
+			<a href="{% url 'generi' 1 %}">AVVENTURA</a>
+			<a href="{% url 'generi' 2 %}">COMMEDIA</a>
+			<a href="{% url 'generi' 3 %}">FANTASCIENZA</a>
+			<a href="{% url 'generi' 4 %}">FANTASY</a>
+			<a href="{% url 'generi' 5 %}">GIALLO</a>
+			<a href="{% url 'generi' 6 %}">HORROR</a>
+			<a href="{% url 'generi' 7 %}">ROSA</a>
+			<span class="line"></span>
+		</nav>
+	</div>
+	<h2 align = "center" class = "ScrittaNovita">I tuoi libri: </h2>
+
+	<div class="generalDiv">
+		{% if booked == False %}
+			<div style="height:100px">
+				<h2 align = "center" class = "ScrittaNovita">Hai la lista delle prenotazioni vuota, dai un'occhiata qua sotto!</h2>
+			</div>
+		{% else %}
+			<div class="grid-container">
+				{% for i in libri_presi %}
+					<div class="grid-item">
+                        <h3>Da restituire entro: {{ i.DataRestituzione }}</h3></br>
+						<img src = "{% static i.ISBN10.image %}">
+						</br><a href="{% url 'SchedaLibro' i.ISBN10.ISBN10 %}" class="book_title"> <u> {{ i.ISBN10.Titolo_Libro }} </u> </a></br>
+						</br>{{ i.ISBN10.Autore }}</br>
+						</br><b>{{ i.ISBN10.Genere }}</b></br>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+
+		{% if wait == True %}
+			<div style="margin-top:-50px; margin-bottom:30px">
+				<h2 align = "center" class = "ScrittaNovita">
+				La tua lista di attesa:
+				</h2>
+			</div>
+			<div class="grid-container">
+				{% for i in waiting_list %}
+					<div class="grid-item">
+						<img src = "{% static i.ISBN10.image %}">
+
+						</br><a href="{% url 'SchedaLibro' i.ISBN10.ISBN10 %}" class="book_title">
+							<u> {{ i.ISBN10.Titolo_Libro }} </u>
+						</a></br>
+
+						</br>{{ i.ISBN10.Autore }}</br>
+
+						</br><b>{{ i.ISBN10.Genere }}</b></br>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+
+		<div style="margin-top:-50px; margin-bottom:30px"><h2 align = "center" class = "ScrittaNovita">Ti consigliamo: </h2></div>
+		<div style="margin-bottom:30px" class="grid-container">
+			{% for i in libri_estratti %}
+				<div class="grid-item">
+					<img src = "{% static i.image %}">
+
+					</br><a href="{% url 'SchedaLibro' i.ISBN10 %}" class="book_title">
+						<u> {{ i.Titolo_Libro }} </u>
+					</a></br>
+
+					</br>{{ i.Autore }}</br>
+
+					</br><b>{{ i.Genere }}</b></br>
+				</div>
+			{% endfor %}
+		</div>
+		<div id = "notices">
+			{% if notifics == False %}
+				<nav class="tendina_notifiche" style="--items:1;">
+					<p> NON CI SONO NOTIFICHE</p>
+					<span class="line"></span>
+				</nav>
+			{% else %}
+				<nav class="tendina_notifiche" style="--items: {{ num_libri_non_restituiti }};">
+					{% for i in avvisi %}
+						<a href="{% url 'SchedaLibro' i.ISBN10.ISBN10 %}"><b>{{ i.Descrizione }}"</b></a>
+					{% endfor %}
+					<span class="line"></span>
+				</nav>
+			{% endif %}
+        </div>
+	</div>
+</body>
+</html>

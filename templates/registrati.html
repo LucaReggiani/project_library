@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+	<meta charset="UTF-8">
+	<link href="{% static 'accedi.css' %}" rel="stylesheet" type="text/css">
+	<link rel= "icon" href="{% static 'logoSito.png' %}">
+    <title>Registrati</title>
+    <script type="text/javascript" language="javascript">
+        var flag = false;
+        function apriTendina(){
+            if(flag==false) {
+                document.getElementById('content').style.transition="all 0.5s";
+                document.getElementById('content').style.marginLeft="-20px";
+                document.getElementById('menu').style.background="rgba(0,0,0,0.6)";
+                flag = true;
+            }
+            else {
+                document.getElementById('content').style.transition="all 0.5s";
+                document.getElementById('content').style.marginLeft="-500px";
+                document.getElementById('menu').style.background="transparent";
+                document.getElementById('menu').style.opacity="1";
+                flag = false;
+            }
+        }
+
+        function cerca()
+		{
+		  window.location.assign("http://127.0.0.1:8000/Ricerca");
+		}
+    </script>
+</head>
+<body background="{% static 'sfondoSito.jpg' %}">
+	<header id="header">
+		<nav class="links" style="--items: 5;">
+			<div id="menu" onclick="apriTendina();">
+				<img src = "{% static 'menu-button-of-three-horizontal-lines.png' %}">
+			</div>
+			<a href="{% url 'index' %}"><p class = "titolo">LA BIBLIOTECA DIGITALE</p></a>
+			<a href="{% url 'Area_Bibliotecari' %}"><p class = "titolo">AREA BIBLIOTECARI</p></a>
+			<a href="{% url 'Accesso' %}"><p class = "titolo">ACCEDI</p></a>
+			<div class="src" onclick="cerca();">
+				<img src = "{% static 'src.png' %}">
+			</div>
+			<span class="line"></span>
+		</nav>
+	</header>
+	<div id = "content">
+		<nav class="tendina" style="--items: 7;">
+			<a href="{% url 'generi' 1 %}">AVVENTURA</a>
+			<a href="{% url 'generi' 2 %}">COMMEDIA</a>
+			<a href="{% url 'generi' 3 %}">FANTASCIENZA</a>
+			<a href="{% url 'generi' 4 %}">FANTASY</a>
+			<a href="{% url 'generi' 5 %}">GIALLO</a>
+			<a href="{% url 'generi' 6 %}">HORROR</a>
+			<a href="{% url 'generi' 7 %}">ROSA</a>
+			<span class="line"></span>
+		</nav>
+	</div>
+	<div>
+		<h1 class="t">Registrati ora per poter consutare e prenotare centinaia di libri</h1>
+		<div class="div_formAggiungiLibro">
+			<form method="post" class="form_search">{% csrf_token %}
+				<p>{{ form_Registrati.as_p }}</p>
+				<input type="submit" value="Registrati" class = "buttonDipendente"/>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

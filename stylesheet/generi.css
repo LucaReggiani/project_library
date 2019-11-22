@@ -1,0 +1,306 @@
+html, body, h1, h2, h3, h4, h5, h6, p, li, ol, ul, pre {
+	margin: 0;
+	padding: 0;
+
+}
+html, body { min-height: 100%; }
+
+body {
+	color: #eee;
+	font-family: 'Lato', sans-serif;
+	font-size: 62.5%;
+	padding: 0 20px;
+	box-sizing: border-box;
+}
+code {
+	background: #fff1;
+	font-family: 'Inconsolata', monospace;
+	padding: .2em .4em;
+}
+
+#content {
+	color: #666; /* colore delle scritte */
+	font-size: 1.6em; /* dimensione delle scritte */
+	margin-top: 6%;
+	padding: 0px; /* spazio dall'alto delle scritte */
+	width: 17%;
+	margin-left:-500px;
+	height:600px;
+    background: rgba(0,0,0,0.6);
+    position: fixed;
+    top:-4.2px;
+    z-index:1;
+    float: left;
+}
+
+/* Appearance */
+.links { /*css sul nav complessivo */
+
+    box-shadow: 0 0 32px #0009; /*ombra bordo nav */
+	font-size: 1.5em; /*grandezza scritte nav */
+	font-weight: 1000; /*spessore scritte nav */
+	background: rgba(0,0,0,0.6);
+	list-style: none;
+}
+.links > a { /*css sulle scritte del nav */
+	color: #FFFFFF; /*colora le scritte del nav*/
+	text-decoration: none; /*tolgo la sottolineature */
+	text-align: center;
+	transition: all .5s;
+	padding: 20px; /*abbassa le scritte inserendo un margine dall'alto */
+	margin-top:0px;
+}
+
+/*css del titolo "la biblioteca digitale" */
+.titolo {
+    font-size: 25px;
+    margin-top:-5px;
+}
+.links > a:hover { /*comportamento quando il mouse ci passa sopra */
+	background: rgba(0,0,0,0.6);
+}
+
+#menu:hover { /*comportamento quando il mouse ci passa sopra */
+	background: rgba(0,0,0,0.6);
+}
+
+#menu {
+	font-size: 1.5em; /*grandezza scritte nav */
+	font-weight: 1000; /*spessore scritte nav */
+	text-align: center;
+	transition: all .5s;
+	padding: 20px; /*abbassa le scritte inserendo un margine dall'alto */
+	cursor:pointer;
+}
+
+/* The Magic */
+#header {
+	position: fixed;
+	margin-left:-18px;
+	z-index:1;
+}
+.links {
+	display: grid; /*dispone gli oggetti a griglia */
+	grid-template-columns: 100px 400px 400px 250px 150px; /* Cinque colonne con dimensioni fissate */
+	position: relative;
+}
+.tendina {
+	display: grid; /*dispone gli oggetti a griglia */
+	grid-template-rows: 80px 80px 80px 80px 80px 80px 90px; /* Sette righe con dimensioni fissate */
+    font-size: 1.0em; /*grandezza scritte nav */
+	font-weight: 1000; /*spessore scritte nav */
+}
+.tendina > a {
+	text-decoration: none; /*tolgo la sottolineature */
+	color: #FFFFFF; /*colora le scritte del nav*/
+	text-align: center;
+	text-decoration: none; /*tolgo la sottolineature */
+	transition: all .5s;
+	padding: 25px; /*abbassa le scritte inserendo un margine dall'alto */
+}
+
+.tendina > a:hover {
+
+    background: rgba(72,72,72, 0.8);
+    font-size: 1.2em;
+}
+
+.descriptor {
+    margin-left: 150px;
+    margin-top: 70px;
+    padding:10px;
+}
+
+.dati {
+    float:left;
+    max-width: 800px;
+    max-height: 220px;
+    overflow:auto;
+    margin-left: 30px;
+}
+
+.genere {
+    font-size: 35px;
+    position:relative;
+    top:60px;
+    padding:40px;
+}
+.genere > b{
+    position:relative;
+    left:450px;
+}
+
+.testo {
+    font-size:15px;
+}
+
+.src:hover { /*comportamento quando il mouse ci passa sopra */
+	background: rgba(0,0,0,0.6);
+}
+
+.src {
+	font-weight: 800; /*spessore scritte nav */
+	text-align: center;
+	padding: 10px; /*abbassa le scritte inserendo un margine dall'alto */
+	cursor:pointer;
+}
+
+.titolo {
+    font-size: 25px;
+    margin-top:-5px;
+}
+
+.book_title {
+    	text-decoration: none; /*tolgo la sottolineature */
+    	color: white;
+}
+
+#menu2:hover { /*comportamento quando il mouse ci passa sopra */
+	background: rgba(0,0,0,0.6);
+}
+
+#menu2 {
+	font-size: 1.5em; /*grandezza scritte nav */
+	font-weight: 1000; /*spessore scritte nav */
+	text-align: center;
+	transition: all .5s;
+	padding: 20px; /*abbassa le scritte inserendo un margine dall'alto */
+	cursor:pointer;
+}
+
+	/* The Magic */
+#header2 {
+	position: fixed;
+	margin-top:-40px;
+	margin-left:-20px;
+	z-index:1;
+}
+
+#notices {
+    margin-left:-500px;
+	color: #666; /* colore delle scritte */
+	font-size: 1.0em; /* dimensione delle scritte */
+	margin-top: 6%;
+	padding: 0px; /* spazio dall'alto delle scritte */
+	width: 17%;
+    background: rgba(0,0,0,0.6);
+    position: fixed;
+    top:-4.2px;
+    z-index:1;
+    float: left;
+}
+
+#notifics:hover { /*comportamento quando il mouse ci passa sopra */
+	background: rgba(0,0,0,0.6);
+}
+
+#notifics {
+    font-size: 1.3em; /*grandezza scritte nav */
+	font-weight: 1000; /*spessore scritte nav */
+	text-align: center;
+	transition: all .5s;
+    padding-top:5px;
+	cursor:pointer;
+}
+
+.tendina_notifiche {
+	display: grid; /*dispone gli oggetti a griglia */
+    font-size: 0.8em; /*grandezza scritte nav */
+	font-weight: 1000; /*spessore scritte nav */
+}
+
+.tendina_notifiche > a {
+	text-decoration: none; /*tolgo la sottolineature */
+	color: #FFFFFF; /*colora le scritte del nav*/
+	text-align: center;
+	text-decoration: none; /*tolgo la sottolineature */
+	transition: all .3s;
+	padding: 25px; /*abbassa le scritte inserendo un margine dall'alto */
+	border-bottom-style:solid;
+    border-bottom-color:white;
+    border-bottom-width:2px;
+}
+
+.tendina_notifiche > a:hover {
+
+    background: rgba(72,72,72, 0.8);
+    font-size: 1.2em;
+}
+
+.tendina_notifiche > p {
+	text-decoration: none; /*tolgo la sottolineature */
+	color: #FFFFFF; /*colora le scritte del nav*/
+	text-align: center;
+	text-decoration: none; /*tolgo la sottolineature */
+	transition: all .3s;
+	padding: 25px; /*abbassa le scritte inserendo un margine dall'alto */
+    font-size: 1.2em;
+}
+
+.benvenuto {
+    font-size: 25px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+/* Appearance */
+.links_login { /*css sul nav complessivo */
+
+    box-shadow: 0 0 32px #0009; /*ombra bordo nav */
+	font-size: 1.5em; /*grandezza scritte nav */
+	font-weight: 1000; /*spessore scritte nav */
+	background: rgba(0,0,0,0.6);
+	list-style: none;
+}
+
+.links_login > a { /*css sulle scritte del nav */
+	color: #FFFFFF; /*colora le scritte del nav*/
+	text-decoration: none; /*tolgo la sottolineature */
+	text-align: center;
+	transition: all .5s;
+	padding: 20px; /*abbassa le scritte inserendo un margine dall'alto */
+	margin-top:0px;
+}
+
+.links_login > a:hover { /*comportamento quando il mouse ci passa sopra */
+	background: rgba(0,0,0,0.6);
+}
+
+.links_login {
+	display: grid; /*dispone gli oggetti a griglia */
+	grid-template-columns: 100px 400px 300px 100px 250px 150px; /* Cinque colonne con dimensioni fissate */
+	position: relative;
+}
+
+.generalDiv {
+     margin-top:40px;
+     margin-bottom:30px;
+}
+
+.links_dipendenti { /*css sul nav complessivo */
+
+    box-shadow: 0 0 32px #0009; /*ombra bordo nav */
+	font-size: 1.5em; /*grandezza scritte nav */
+	font-weight: 1000; /*spessore scritte nav */
+	background: rgba(0,0,0,0.6);
+	list-style: none;
+}
+
+.links_dipendenti > a { /*css sulle scritte del nav */
+	color: #FFFFFF; /*colora le scritte del nav*/
+	text-decoration: none; /*tolgo la sottolineature */
+	text-align: center;
+	transition: all .5s;
+	padding: 20px; /*abbassa le scritte inserendo un margine dall'alto */
+	margin-top:0px;
+}
+
+.links_dipendenti > a:hover { /*comportamento quando il mouse ci passa sopra */
+	background: rgba(0,0,0,0.6);
+}
+
+.links_dipendenti {
+	display: grid; /*dispone gli oggetti a griglia */
+	grid-template-columns: 100px 440px 340px 270px 150px; /* Cinque colonne con dimensioni fissate */
+	position: relative;
+}

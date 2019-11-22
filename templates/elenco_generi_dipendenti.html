@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+	<link href="{% static 'generi.css' %}" rel="stylesheet" type="text/css">
+	<link rel= "icon" href="{% static 'logoSito.png' %}">
+    <title>Libri di avventura</title>
+    <script type="text/javascript" src="{% static 'functions.js' %}"></script>
+</head>
+<body background="{% static 'sfondoSito.jpg' %}">
+	<header id="header2">
+        <nav class="links_dipendenti" style="--items: 5;">
+            <div id="menu2" onclick="apriTendina();">
+                <img src = "{% static 'menu-button-of-three-horizontal-lines.png' %}">
+            </div>
+            <a href="{% url 'index' %}"><p class = "titolo">LA BIBLIOTECA DIGITALE</p></a>
+            <p class = "benvenuto" align="center">CIAO, {{ user }}</p>
+            <a href="{% url 'Logout' %}"><p class = "titolo">LOGOUT</p></a>
+            <div class="src" onclick="cerca();">
+                <img src = "{% static 'src.png' %}">
+            </div>
+            <span class="line"></span>
+        </nav>
+    </header>
+	<div id = "content">
+		<nav class="tendina" style="--items: 7;">
+			<a href="{% url 'generi' 1 %}">AVVENTURA</a>
+			<a href="{% url 'generi' 2 %}">COMMEDIA</a>
+			<a href="{% url 'generi' 3 %}">FANTASCIENZA</a>
+			<a href="{% url 'generi' 4 %}">FANTASY</a>
+			<a href="{% url 'generi' 5 %}">GIALLO</a>
+			<a href="{% url 'generi' 6 %}">HORROR</a>
+			<a href="{% url 'generi' 7 %}">ROSA</a>
+			<span class="line"></span>
+		</nav>
+	</div>
+    <div class="generalDiv">
+        <div>
+            <div class = "genere"><b>{{ kind }}</b></div>
+            {% for i in lista_libri %}
+                <div class = "descriptor">
+                    <div style="float:left">
+                        <img src = "{% static i.image %}">
+
+                    </div>
+                    <div class = "dati">
+                        <a href="{% url 'SchedaLibro' i.ISBN10 %}" class = "book_title"> <h2> <u> {{ i.Titolo_Libro }} </u> </h2></a></br>
+                        <t class = "testo">{{ i.Descrizione }}</t>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
