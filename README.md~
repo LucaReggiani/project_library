@@ -11,15 +11,7 @@ disponibili; restituzione di libri, estensione del prestito,
 lista di attesa per libri non disponibili, ricezione di
 notifica in caso di a) mancata restituzione entro il
 termine, b) disponibilità di un libro per cui si è in lista di
-attesa; funzionalità di recensioni su libri presi a prestito.
-
-# Framework used:
-
-	Django
-	
-# DBMS used:
-
-	SQLite3
+attesa; funzionalità di recensioni su libri presi a prestito
 
 # Init Project
 
